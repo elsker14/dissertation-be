@@ -1,3 +1,3 @@
-# Dissertation-BackEnd-Try1
+# SpringBoot eCommerce
 
 Back-end: SpringBoot, MySQL
