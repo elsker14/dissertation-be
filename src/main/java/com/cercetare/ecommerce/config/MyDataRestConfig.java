@@ -5,6 +5,7 @@ import com.cercetare.ecommerce.entity.Product;
 import com.cercetare.ecommerce.entity.ProductCategory;
 import com.cercetare.ecommerce.entity.State;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -20,6 +21,9 @@ import java.util.Set;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
+    @Value("${allowed.origins}")
+    private String[] theAllowedOrigins;
+
     private EntityManager entityManager;
 
     @Autowired
@@ -32,7 +36,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         // Linia de mai jos era odata cu implementarea metodei.
         // RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);
 
-        HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
+        HttpMethod[] theUnsupportedActions = {
+                HttpMethod.PUT,
+                HttpMethod.POST,
+                HttpMethod.DELETE,
+                HttpMethod.PATCH
+        };
 
         // disable HTTP methods for Product, ProductCategory, Country, State: PUT, POST and DELETE
         disableHttpMethods(Product.class, config, theUnsupportedActions);
@@ -42,6 +51,9 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         // call an internal helper method
         exposeIds(config);
+
+        // configure cors mapping -> now we can delete @CrossOrigin annotation from all repos
+        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
     }
 
     private static void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {

@@ -3,9 +3,12 @@ package com.cercetare.ecommerce.controller;
 import com.cercetare.ecommerce.dtos.Purchase;
 import com.cercetare.ecommerce.dtos.PurchaseResponse;
 import com.cercetare.ecommerce.service.CheckoutService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
