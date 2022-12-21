@@ -1,9 +1,6 @@
 package com.cercetare.ecommerce.config;
 
-import com.cercetare.ecommerce.entity.Country;
-import com.cercetare.ecommerce.entity.Product;
-import com.cercetare.ecommerce.entity.ProductCategory;
-import com.cercetare.ecommerce.entity.State;
+import com.cercetare.ecommerce.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -48,6 +45,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         // call an internal helper method
         exposeIds(config);
