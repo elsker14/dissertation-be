@@ -7,7 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-//@CrossOrigin("http://localhost:4200")
 @RepositoryRestResource(collectionResourceRel = "states", path = "states")
 public interface StateRepositories extends JpaRepository<State, Integer> {
 
