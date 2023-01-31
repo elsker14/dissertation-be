@@ -93,6 +93,7 @@ public class StateRepositoryTests {
 
     @ParameterizedTest
     @ValueSource(strings = {"BR", "CA", "DE", "IN", "TR", "US"})
+    @DisplayName("Search some states in retrieved list of states by country code")
     void itShouldReturnStateByCountryCode(String countryCode) {
         List<State> retrievedStatesByCountryCodeList = stateRepositories.findByCountryCode(countryCode);
 
