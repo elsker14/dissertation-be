@@ -2,6 +2,7 @@ package com.cercetare.ecommerce.unit;
 
 import com.cercetare.ecommerce.dao.ProductRepository;
 import com.cercetare.ecommerce.entity.Product;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,6 +26,7 @@ public class ProductRepositoryTests {
     private ProductRepository productRepository;
 
     @Test
+    @DisplayName("Check if retrieved products are not null")
     void itShouldSelectAllProducts() {
         List<Product> allProducts = productRepository.findAll();
 
@@ -34,6 +36,7 @@ public class ProductRepositoryTests {
 
     @ParameterizedTest
     @ValueSource(longs = {1,2,3,4})
+    @DisplayName("Check if retrieved products by category are correct")
     void itShouldSelectOnlyProductsFromEachCategory(Long parameterCategoryId) {
         Page<Product> allProductsFromCategory = productRepository.findByCategoryId(parameterCategoryId, Pageable.ofSize(100));
 
@@ -41,6 +44,7 @@ public class ProductRepositoryTests {
     }
 
     @RepeatedTest(10)
+    @DisplayName("Check if retrieved products contain the requested string")
     void itShouldReturnExistingProductsStartingWithName() {
         List<String> productNames = new ArrayList<>(Arrays.asList("python", "java", "sql", "coffee", "pad"));
         Random random = new Random();
