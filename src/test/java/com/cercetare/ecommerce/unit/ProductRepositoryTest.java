@@ -20,7 +20,7 @@ import java.util.Random;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-public class ProductRepositoryTests {
+public class ProductRepositoryTest {
 
     @Autowired
     private ProductRepository productRepository;

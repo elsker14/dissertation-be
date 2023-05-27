@@ -15,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
-public class CustomerRepositoryTests {
+public class CustomerRepositoryTest {
 
     @Autowired
     private CustomerRepository customerRepository;

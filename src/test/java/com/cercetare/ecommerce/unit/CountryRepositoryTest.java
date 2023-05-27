@@ -2,11 +2,9 @@ package com.cercetare.ecommerce.unit;
 
 import com.cercetare.ecommerce.dao.CountryRepositories;
 import com.cercetare.ecommerce.entity.Country;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -17,7 +15,7 @@ import java.util.Map;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-public class CountryRepositoryTests {
+public class CountryRepositoryTest {
 
     @Autowired
     private CountryRepositories countryRepositories;

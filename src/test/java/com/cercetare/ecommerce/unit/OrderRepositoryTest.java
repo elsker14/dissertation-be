@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-public class OrderRepositoryTests {
+public class OrderRepositoryTest {
 
     @Autowired
     OrderRepository orderRepository;

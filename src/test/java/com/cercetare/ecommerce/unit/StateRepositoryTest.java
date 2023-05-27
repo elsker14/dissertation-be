@@ -17,7 +17,7 @@ import java.util.Map;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-public class StateRepositoryTests {
+public class StateRepositoryTest {
 
     @Autowired
     private StateRepositories stateRepositories;
