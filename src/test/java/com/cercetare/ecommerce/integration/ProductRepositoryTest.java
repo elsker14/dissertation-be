@@ -1,4 +1,4 @@
-package com.cercetare.ecommerce.unit;
+package com.cercetare.ecommerce.integration;
 
 import com.cercetare.ecommerce.dao.ProductRepository;
 import com.cercetare.ecommerce.entity.Product;
